@@ -55,5 +55,19 @@ namespace BusinessLogic.Test
             };
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException), "First name cannot be null")]
+        public void FirstNameNotNullTest()
+        {
+            var aProfile = new Profile()
+            {
+                FirstName = null,
+                LastName = Doe,
+                Age = Age23,
+                PhoneNumber = PhoneNumberSample,
+                Address = SomeStreetAddress,
+            };
+        }
+
     }
 }
