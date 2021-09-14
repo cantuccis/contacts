@@ -96,5 +96,19 @@ namespace BusinessLogic.Test
             Assert.AreEqual(expectedAge, actualAge);
         }
 
+        [TestMethod]
+        public void BirthdayAgeTest()
+        {
+            //Arrange
+            int expectedAge = 24;
+            DateTime now = DateTime.Now;
+            johnDoeProfile.Birthday = new DateTime(now.Year - expectedAge, now.Month, now.Day);
+
+            //Act
+            int actualAge = johnDoeProfile.Age;
+
+            //Assert
+            Assert.AreEqual(expectedAge, actualAge);
+        }
     }
 }
