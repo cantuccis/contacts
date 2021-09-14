@@ -37,8 +37,18 @@ namespace BusinessLogic
                 lastName = value ?? throw new ArgumentNullException("Last name cannot be null");
             } 
         }
-        public int Age { get; set; }
+        public int Age { 
+            get {
+                DateTime now = DateTime.Now;
+                DateTime actualYearBirthday = new DateTime(now.Year, Birthday.Month, Birthday.Day);
+                int age = now.Year - Birthday.Year;
+                if (now < actualYearBirthday)
+                    age--;
+                return age;
+            } 
+        }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
+        public DateTime Birthday { get; set; }
     }
 }
