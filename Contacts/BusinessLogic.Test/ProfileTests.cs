@@ -8,7 +8,7 @@ namespace BusinessLogic.Test
     {
         private const string John = "John";
         private const string Doe = "Doe";
-        private const int Age23 = 23;
+        private readonly DateTime Oct7th1997 = new DateTime(1997, 10, 7);
         private const string PhoneNumberSample = "+59899999999";
         private const string SomeStreetAddress = "SomeStreet 1111";
         private Profile johnDoeProfile;
@@ -22,7 +22,7 @@ namespace BusinessLogic.Test
             {
                 FirstName = John,
                 LastName = Doe,
-                Age = Age23,
+                Birthday = Oct7th1997,
                 PhoneNumber = PhoneNumberSample,
                 Address = SomeStreetAddress,
             };
