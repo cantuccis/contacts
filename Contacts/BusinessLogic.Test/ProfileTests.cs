@@ -77,5 +77,18 @@ namespace BusinessLogic.Test
             johnDoeProfile.LastName = null;
         }
 
+        [TestMethod]
+        public void GetAgeTest()
+        {
+            DateTime now = DateTime.Now;
+            int actualYear = now.Year;
+            int johnBirthYear = johnDoeProfile.Birthday.Year;
+            int johnAge = actualYear - johnBirthYear;
+            DateTime johnBirthdayThisYear = new DateTime(actualYear, johnDoeProfile.Birthday.Month, johnDoeProfile.Birthday.Day);
+            if (now <= johnBirthdayThisYear)
+                johnAge--;
+            Assert.AreEqual(johnAge, johnDoeProfile.Age);
+        }
+
     }
 }
