@@ -110,5 +110,18 @@ namespace BusinessLogic.Test
             //Assert
             Assert.AreEqual(expectedAge, actualAge);
         }
+
+        [TestMethod]
+        public void SetProfilePictureTest()
+        {
+            //Arrange
+            string picturePath = @"Resources\test-image.jpg";
+
+            //Act
+            johnDoeProfile.PicturePath = picturePath;
+
+            //Assert
+            Assert.AreEqual(picturePath, johnDoeProfile.PicturePath);
+        }
     }
 }
