@@ -11,6 +11,8 @@ namespace BusinessLogic.Test
         private readonly DateTime Oct7th1997 = new DateTime(1997, 10, 7);
         private const string PhoneNumberSample = "+59899999999";
         private const string SomeStreetAddress = "SomeStreet 1111";
+        private const string PicturePathSample = @"Resources\test-image.jpg";
+
         private Profile johnDoeProfile;
 
         private const string TooLongName = "verylongfirstnamethatshouldnotworkherelikeseriouslywhohassuchalongname??";
@@ -114,14 +116,12 @@ namespace BusinessLogic.Test
         [TestMethod]
         public void SetProfilePictureTest()
         {
-            //Arrange
-            string picturePath = @"Resources\test-image.jpg";
 
             //Act
-            johnDoeProfile.PicturePath = picturePath;
+            johnDoeProfile.PicturePath = PicturePathSample;
 
             //Assert
-            Assert.AreEqual(picturePath, johnDoeProfile.PicturePath);
+            Assert.AreEqual(PicturePathSample, johnDoeProfile.PicturePath);
         }
     }
 }
