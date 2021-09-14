@@ -28,12 +28,26 @@ namespace BusinessLogic.Test
 
 
         [TestMethod]
-        [ExpectedException(typeof(BusinessLogicException), $"First Name must be between {Profile.FirstNameMinLength} and {Profile.FirstNameMaxLength}")]
+        [ExpectedException(typeof(BusinessLogicException), "First name length must be between 2 and 30")]
         public void FirstNameMaxLengthTest()
         {
             var aProfile = new Profile()
             {
                 FirstName = "verylongfirstnamethatshouldnotworkherelikeseriouslywhohassuchalongname??",
+                LastName = Doe,
+                Age = Age23,
+                PhoneNumber = PhoneNumberSample,
+                Address = SomeStreetAddress,
+            };
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(BusinessLogicException), "First name length must be between 2 and 30")]
+        public void FirstNameMinLengthTest()
+        {
+            var aProfile = new Profile()
+            {
+                FirstName = "",
                 LastName = Doe,
                 Age = Age23,
                 PhoneNumber = PhoneNumberSample,
