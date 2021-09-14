@@ -80,14 +80,20 @@ namespace BusinessLogic.Test
         [TestMethod]
         public void GetAgeTest()
         {
+            //Arrange
             DateTime now = DateTime.Now;
             int actualYear = now.Year;
             int johnBirthYear = johnDoeProfile.Birthday.Year;
-            int johnAge = actualYear - johnBirthYear;
+            int expectedAge = actualYear - johnBirthYear;
             DateTime johnBirthdayThisYear = new DateTime(actualYear, johnDoeProfile.Birthday.Month, johnDoeProfile.Birthday.Day);
             if (now <= johnBirthdayThisYear)
-                johnAge--;
-            Assert.AreEqual(johnAge, johnDoeProfile.Age);
+                expectedAge--;
+
+            //Act
+            int actualAge = johnDoeProfile.Age;
+
+            //Assert
+            Assert.AreEqual(expectedAge, actualAge);
         }
 
     }
