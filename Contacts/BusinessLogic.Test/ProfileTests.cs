@@ -11,11 +11,14 @@ namespace BusinessLogic.Test
         private const int Age23 = 23;
         private const string PhoneNumberSample = "+59899999999";
         private const string SomeStreetAddress = "SomeStreet 1111";
+        private Profile johnDoeProfile;
 
-        [TestMethod]
-        public void NewProfile()
+        private const string TooLongName = "verylongfirstnamethatshouldnotworkherelikeseriouslywhohassuchalongname??";
+
+        [TestInitialize]
+        public void Initialize()
         {
-            var aProfile = new Profile()
+            johnDoeProfile = new Profile()
             {
                 FirstName = John,
                 LastName = Doe,
@@ -23,7 +26,12 @@ namespace BusinessLogic.Test
                 PhoneNumber = PhoneNumberSample,
                 Address = SomeStreetAddress,
             };
-            Assert.IsNotNull(aProfile);
+        }
+
+        [TestMethod]
+        public void NewProfile()
+        {
+            Assert.IsNotNull(johnDoeProfile);
         }
 
 
@@ -31,42 +39,21 @@ namespace BusinessLogic.Test
         [ExpectedException(typeof(BusinessLogicException), "First name length must be between 2 and 30")]
         public void FirstNameMaxLengthTest()
         {
-            var aProfile = new Profile()
-            {
-                FirstName = "verylongfirstnamethatshouldnotworkherelikeseriouslywhohassuchalongname??",
-                LastName = Doe,
-                Age = Age23,
-                PhoneNumber = PhoneNumberSample,
-                Address = SomeStreetAddress,
-            };
+            johnDoeProfile.FirstName = TooLongName;
         }
 
         [TestMethod]
         [ExpectedException(typeof(BusinessLogicException), "First name length must be between 2 and 30")]
         public void FirstNameMinLengthTest()
         {
-            var aProfile = new Profile()
-            {
-                FirstName = "",
-                LastName = Doe,
-                Age = Age23,
-                PhoneNumber = PhoneNumberSample,
-                Address = SomeStreetAddress,
-            };
+            johnDoeProfile.FirstName = "";
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException), "First name cannot be null")]
         public void FirstNameNotNullTest()
         {
-            var aProfile = new Profile()
-            {
-                FirstName = null,
-                LastName = Doe,
-                Age = Age23,
-                PhoneNumber = PhoneNumberSample,
-                Address = SomeStreetAddress,
-            };
+            johnDoeProfile.FirstName = null;
         }
 
     }
