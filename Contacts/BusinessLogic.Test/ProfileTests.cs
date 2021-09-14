@@ -25,5 +25,21 @@ namespace BusinessLogic.Test
             };
             Assert.IsNotNull(aProfile);
         }
+
+
+        [TestMethod]
+        [ExpectedException(typeof(BusinessLogicException), $"First Name must be between {Profile.FirstNameMinLength} and {Profile.FirstNameMaxLength}")]
+        public void FirstNameMaxLengthTest()
+        {
+            var aProfile = new Profile()
+            {
+                FirstName = "verylongfirstnamethatshouldnotworkherelikeseriouslywhohassuchalongname??",
+                LastName = Doe,
+                Age = Age23,
+                PhoneNumber = PhoneNumberSample,
+                Address = SomeStreetAddress,
+            };
+        }
+
     }
 }
