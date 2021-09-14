@@ -22,7 +22,7 @@ namespace BusinessLogic
             {
                 if (value?.Length < FirstNameMinLength || value?.Length > FirstNameMaxLength)
                 {
-                    throw new BusinessLogicException("First name length must be between 2 and 30");
+                    throw new BusinessLogicException($"First name length must be between {FirstNameMinLength} and {FirstNameMaxLength}");
                 }
                 firstName = value ?? throw new ArgumentNullException("First name cannot be null");
             }
@@ -32,7 +32,7 @@ namespace BusinessLogic
             set {
                 if (value?.Length < LastNameMinLength || value?.Length > LastNameMaxLength)
                 {
-                    throw new BusinessLogicException("Last name length must be between 2 and 60");
+                    throw new BusinessLogicException($"Last name length must be between {LastNameMinLength} and {LastNameMaxLength}");
                 }
                 lastName = value ?? throw new ArgumentNullException("Last name cannot be null");
             } 
