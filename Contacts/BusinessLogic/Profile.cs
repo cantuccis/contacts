@@ -6,23 +6,37 @@ namespace BusinessLogic
     {
         public const int FirstNameMinLength = 2;
         public const int FirstNameMaxLength = 30;
+        public const int LastNameMinLength = 2;
+        public const int LastNameMaxLength = 60;
         private string firstName;
+        private string lastName;
 
         public Profile()
         {
         }
 
-        public string FirstName { 
-            get => firstName; 
-            set { 
-                if(value?.Length < FirstNameMinLength || value?.Length > FirstNameMaxLength)
+        public string FirstName
+        {
+            get => firstName;
+            set
+            {
+                if (value?.Length < FirstNameMinLength || value?.Length > FirstNameMaxLength)
                 {
                     throw new BusinessLogicException("First name length must be between 2 and 30");
                 }
                 firstName = value ?? throw new ArgumentNullException("First name cannot be null");
+            }
+        }
+        public string LastName { 
+            get => lastName;
+            set {
+                if (value?.Length < LastNameMinLength || value?.Length > LastNameMaxLength)
+                {
+                    throw new BusinessLogicException("Last name length must be between 2 and 60");
+                }
+                lastName = value ?? throw new ArgumentNullException("Last name cannot be null");
             } 
         }
-        public string LastName { get; set; }
         public int Age { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
