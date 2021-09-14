@@ -56,5 +56,26 @@ namespace BusinessLogic.Test
             johnDoeProfile.FirstName = null;
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(BusinessLogicException), "Last name length must be between 2 and 60")]
+        public void LastNameMaxLengthTest()
+        {
+            johnDoeProfile.LastName = TooLongName;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(BusinessLogicException), "Last name length must be between 2 and 60")]
+        public void LastNameMinLengthTest()
+        {
+            johnDoeProfile.LastName = "";
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException), "Last name cannot be null")]
+        public void LastNameNotNullTest()
+        {
+            johnDoeProfile.LastName = null;
+        }
+
     }
 }
