@@ -123,5 +123,19 @@ namespace BusinessLogic.Test
             //Assert
             Assert.AreEqual(PicturePathSample, johnDoeProfile.PicturePath);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(BusinessLogicException), "Profile picture path is too long. Maximum length is 260")]
+        public void SetTooLongProfilePictureTest()
+        {
+            //Arrange
+            string tooLongPath = "";
+            while (tooLongPath.Length <= 260)
+                tooLongPath += "somestring";
+            string invalidPath = tooLongPath;
+
+            //Act
+            johnDoeProfile.PicturePath = invalidPath;
+        }
     }
 }
