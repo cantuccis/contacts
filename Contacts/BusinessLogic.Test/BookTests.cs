@@ -7,13 +7,13 @@ namespace BusinessLogic.Test
     [TestClass]
     public class BookTests
     {
-        private readonly string[] Names = new string[] {"John","Johny","Rob","Bob","Jessica","Mike"};
+        private readonly string[] Names = new string[] { "John", "Johny", "Rob", "Bob", "Jessica", "Mike" };
         private readonly string[] Surnames = new string[] { "Doe", "Goodman", "McClaw", "White" };
         private readonly DateTime[] Dates = new DateTime[] { new DateTime(1997, 10, 7), new DateTime(1999, 9, 9) };
         private const string SomeStreetAddress = "SomeStreet 1111";
         private const string PicturePathSample = @"Resources\test-image.jpg";
         private const string SomeBookName = "Somebook";
-        private Random rand = new Random();
+        private readonly Random rand = new Random();
 
         private IList<Profile> profiles;
 
