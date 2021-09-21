@@ -136,6 +136,57 @@ namespace BusinessLogic.Test
             johnDoeProfile.PicturePath = invalidPath;
         }
 
+        [TestMethod]
+        public void ProfilesEqualityTest()
+        {
+            //Arrange
+            var johnDoeProfile2 = new Profile()
+            {
+                FirstName = "DifferentName",
+                LastName = "DifferentLastName",
+                Birthday = new DateTime(2000,1,1),
+                PhoneNumber = PhoneNumberSample,
+                Address = "DifferentAddress",
+            };
+
+            //Act
+            bool areEqual = johnDoeProfile.Equals(johnDoeProfile2);
+
+            //Assert
+            Assert.IsTrue(areEqual);
+        }
+
+        [TestMethod]
+        public void ProfilesInequalityTest()
+        {
+            var johnDoeProfile2 = new Profile()
+            {
+                FirstName = John,
+                LastName = Doe,
+                Birthday = Oct7th1997,
+                PhoneNumber = "123456789",
+                Address = SomeStreetAddress,
+            };
+
+            //Act
+            bool areEqual = johnDoeProfile.Equals(johnDoeProfile2);
+
+            //Assert
+            Assert.IsFalse(areEqual);
+        }
+
+        [TestMethod]
+        public void ProfilesNullInequalityTest()
+        {
+
+            //Act
+            bool areEqual = johnDoeProfile.Equals(null);
+
+            //Assert
+            Assert.IsFalse(areEqual);
+        }
+
+
         private static string GenerateString(string text, int length)
         {
             string tooLongPath = "";
