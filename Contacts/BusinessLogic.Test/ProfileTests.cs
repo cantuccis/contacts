@@ -129,13 +129,19 @@ namespace BusinessLogic.Test
         public void SetTooLongProfilePictureTest()
         {
             //Arrange
-            string tooLongPath = "";
-            while (tooLongPath.Length <= 260)
-                tooLongPath += "somestring";
+            string tooLongPath = GenerateString("a", Profile.MaxPathLength+1);
             string invalidPath = tooLongPath;
 
             //Act
             johnDoeProfile.PicturePath = invalidPath;
+        }
+
+        private static string GenerateString(string text, int length)
+        {
+            string tooLongPath = "";
+            while (tooLongPath.Length < length)
+                tooLongPath += text;
+            return tooLongPath;
         }
     }
 }
