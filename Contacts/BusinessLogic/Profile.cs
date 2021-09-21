@@ -2,7 +2,7 @@
 
 namespace BusinessLogic
 {
-    public class Profile
+    public class Profile : IEquatable<Profile>
     {
         public const int FirstNameMinLength = 2;
         public const int FirstNameMaxLength = 30;
@@ -67,5 +67,7 @@ namespace BusinessLogic
                 picturePath = new Uri(value, UriKind.RelativeOrAbsolute);
             } 
         }
+
+        public bool Equals(Profile other) => other != null && other.PhoneNumber.Equals(this.PhoneNumber);
     }
 }
