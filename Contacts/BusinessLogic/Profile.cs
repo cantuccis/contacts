@@ -8,6 +8,8 @@ namespace BusinessLogic
         public const int FirstNameMaxLength = 30;
         public const int LastNameMinLength = 2;
         public const int LastNameMaxLength = 60;
+        public const int MaxPathLength = 260;
+
         private string firstName;
         private string lastName;
         private Uri picturePath;
@@ -58,8 +60,10 @@ namespace BusinessLogic
         public string PicturePath { 
             get => picturePath.OriginalString;
             set {
-                if (value?.Length > 260)
-                    throw new BusinessLogicException("Profile picture path is too long. Maximum length is 260");
+                if (value?.Length > MaxPathLength)
+                {
+                    throw new BusinessLogicException($"Profile picture path is too long. Maximum length is {MaxPathLength}");
+                }
                 picturePath = new Uri(value, UriKind.RelativeOrAbsolute);
             } 
         }
