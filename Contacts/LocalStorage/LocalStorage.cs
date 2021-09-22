@@ -4,15 +4,16 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LocalStorage.Exceptions;
 
 namespace LocalStorage
 {
     public class LocalStorage
     {
-        public readonly DirectoryInfo StorageDirectory;
+        private readonly DirectoryInfo storageDirectory;
         public LocalStorage(string storageDirPath)
         {
-            StorageDirectory = new DirectoryInfo(storageDirPath);
+            storageDirectory = new DirectoryInfo(storageDirPath);
         }
        
         public void Add(FileInfo file)
@@ -23,7 +24,7 @@ namespace LocalStorage
             if (Exists(file.Name))
                 throw new LocalStorageException($"File {file.Name} already exists");
 
-            string destionationPath = Path.Combine(StorageDirectory.FullName, file.FullName);
+            string destionationPath = Path.Combine(storageDirectory.FullName, file.FullName);
 
             try
             {
@@ -41,13 +42,13 @@ namespace LocalStorage
             }
         }
 
-        public bool Exists(string filename) => StorageDirectory.GetFiles().Any(finfo => finfo.Name == filename);
+        public bool Exists(string filename) => storageDirectory.GetFiles().Any(finfo => finfo.Name == filename);
 
         public void Remove(string filename)
         {
             if(Exists(filename))
             {
-                string filepath = Path.Combine(StorageDirectory.FullName, filename);
+                string filepath = Path.Combine(storageDirectory.FullName, filename);
                 try
                 {
                     File.Delete(filepath);
@@ -64,5 +65,8 @@ namespace LocalStorage
                 }
             }
         }
+
+        public IList<string> GetAll() => storageDirectory.GetFiles().Select(file => file.Name).ToList();
+        
     }
 }
