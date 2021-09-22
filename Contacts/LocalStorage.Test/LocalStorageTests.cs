@@ -22,7 +22,7 @@ namespace LocalStorage.Test
         [TestInitialize]
         public void Setup()
         {
-            files = new FileInfo[] { file1, file2, file3, file4, file5, file6 };
+            files = new FileInfo[] { file1, file2, file3, file4, file5, file6, file7 };
             localStorage.Clear();
         }
 
@@ -56,6 +56,23 @@ namespace LocalStorage.Test
             localStorage.Add(file3);
             localStorage.Remove(file2.Name);
             Assert.IsFalse(localStorage.Exists(file2.Name));
+        }
+
+        [TestMethod]
+        public void GetAllTest()
+        {
+            foreach (var file in files)
+            {
+                localStorage.Add(file);
+            }
+
+            IList<string> returnedFiles = localStorage.GetAll();
+
+            foreach (var file in files)
+            {
+                Assert.IsTrue(returnedFiles.Contains(file.Name));
+
+            }
         }
 
     }

@@ -88,7 +88,7 @@ namespace BusinessLogic.Test
             int johnBirthYear = johnDoeProfile.Birthday.Year;
             int expectedAge = actualYear - johnBirthYear;
             DateTime johnBirthdayThisYear = new DateTime(actualYear, johnDoeProfile.Birthday.Month, johnDoeProfile.Birthday.Day);
-            if (now <= johnBirthdayThisYear)
+            if (now < johnBirthdayThisYear)
                 expectedAge--;
 
             //Act
@@ -102,8 +102,10 @@ namespace BusinessLogic.Test
         public void BirthdayAgeTest()
         {
             //Arrange
-            int expectedAge = 24;
             DateTime now = DateTime.Now;
+            int actualYear = now.Year;
+            int johnBirthYear = johnDoeProfile.Birthday.Year;
+            int expectedAge = actualYear - johnBirthYear;
             johnDoeProfile.Birthday = new DateTime(now.Year - expectedAge, now.Month, now.Day);
 
             //Act
