@@ -14,6 +14,8 @@ namespace LocalStorage
         public LocalStorage(string storageDirPath)
         {
             storageDirectory = new DirectoryInfo(storageDirPath);
+            if (!storageDirectory.Exists)
+                storageDirectory.Create();
         }
        
         public void Add(FileInfo file)
@@ -24,7 +26,7 @@ namespace LocalStorage
             if (Exists(file.Name))
                 throw new LocalStorageException($"File {file.Name} already exists");
 
-            string destionationPath = Path.Combine(storageDirectory.FullName, file.FullName);
+            string destionationPath = Path.Combine(storageDirectory.FullName, file.Name);
 
             try
             {
@@ -67,6 +69,14 @@ namespace LocalStorage
         }
 
         public IList<string> GetAll() => storageDirectory.GetFiles().Select(file => file.Name).ToList();
+
+        public void Clear()
+        {
+            foreach (var file in GetAll())
+            {
+                Remove(file);
+            }
+        }
         
     }
 }
