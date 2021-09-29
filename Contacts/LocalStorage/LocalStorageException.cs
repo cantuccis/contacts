@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Runtime.Serialization;
 
-namespace LocalStorage.Exceptions
+namespace Storage.Exceptions
 {
     [Serializable]
     public class LocalStorageException : Exception

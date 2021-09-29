@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LocalStorage.Exceptions;
+using Storage.Exceptions;
 
-namespace LocalStorage
+namespace Storage
 {
     public class LocalStorage
     {
@@ -44,6 +44,13 @@ namespace LocalStorage
             }
         }
 
+        public void AddForce(FileInfo file)
+        {
+            if (Exists(file.Name))
+                Remove(file.Name);
+            Add(file);
+        }
+
         public bool Exists(string filename) => storageDirectory.GetFiles().Any(finfo => finfo.Name == filename);
 
         public void Remove(string filename)
@@ -68,13 +75,21 @@ namespace LocalStorage
             }
         }
 
-        public IList<string> GetAll() => storageDirectory.GetFiles().Select(file => file.Name).ToList();
+        public IList<FileInfo> GetAll() => storageDirectory.GetFiles();
+
+        public FileInfo Get(string name)
+        {
+            if (!Exists(name))
+                throw new LocalStorageException($"File {name} does not exist");
+
+            return storageDirectory.GetFiles().First(file => file.Name == name);
+        }
 
         public void Clear()
         {
             foreach (var file in GetAll())
             {
-                Remove(file);
+                Remove(file.Name);
             }
         }
         
