@@ -1,9 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Storage;
 
-namespace LocalStorage.Test
+namespace Storage.Test
 {
     [TestClass]
     public class LocalStorageTests
@@ -66,7 +68,7 @@ namespace LocalStorage.Test
                 localStorage.Add(file);
             }
 
-            IList<string> returnedFiles = localStorage.GetAll();
+            IList<string> returnedFiles = localStorage.GetAll().Select(file => file.Name).ToList();
 
             foreach (var file in files)
             {
@@ -75,5 +77,14 @@ namespace LocalStorage.Test
             }
         }
 
+        [TestMethod]
+        public void GetFileTest()
+        {
+            localStorage.Add(file1);
+
+            FileInfo retrievedFile = localStorage.Get(file1.Name);
+
+            Assert.AreEqual(retrievedFile.Name, file1.Name);
+        }
     }
 }
