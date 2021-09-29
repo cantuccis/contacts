@@ -240,7 +240,7 @@ namespace ContactsUI
             this.noProfilesLabel.Name = "noProfilesLabel";
             this.noProfilesLabel.Size = new System.Drawing.Size(790, 75);
             this.noProfilesLabel.TabIndex = 2;
-            this.noProfilesLabel.Text = "You don\'t have any contact yet :(\r\nAdd new contacts in the upper left menu";
+            this.noProfilesLabel.Text = "You don\'t have any contacts yet :(\r\nAdd new contacts in the upper left menu";
             this.noProfilesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ProfilesNavigator

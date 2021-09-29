@@ -47,7 +47,7 @@ namespace ContactsUI
         private void SetupLocalStorage()
         {
             localStorage.Clear();
-            Bitmap defaultProfileImage = Properties.Resources.user;
+            Bitmap defaultProfileImage = Properties.Resources.person;
             string defaultProfileImagePath = Path.Combine(storageDirPath, DefaultProfileImageName);
             defaultProfileImage.Save(defaultProfileImagePath);
         }
@@ -57,6 +57,13 @@ namespace ContactsUI
             materialSkinManager.EnforceBackcolorOnAllComponents = true;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(
+                MaterialSkin.Primary.DeepPurple400,
+                MaterialSkin.Primary.DeepPurple500,
+                MaterialSkin.Primary.Blue100,
+                MaterialSkin.Accent.Blue700,
+                MaterialSkin.TextShade.WHITE
+                );
         }
 
     }

@@ -51,7 +51,7 @@ namespace ContactsUI
             this.birthdayPickerLabel.Depth = 0;
             this.birthdayPickerLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.birthdayPickerLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
-            this.birthdayPickerLabel.Location = new System.Drawing.Point(334, 249);
+            this.birthdayPickerLabel.Location = new System.Drawing.Point(334, 244);
             this.birthdayPickerLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.birthdayPickerLabel.Name = "birthdayPickerLabel";
             this.birthdayPickerLabel.Size = new System.Drawing.Size(46, 14);
@@ -148,7 +148,7 @@ namespace ContactsUI
             // newProfilePicture
             // 
             this.newProfilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.newProfilePicture.InitialImage = global::ContactsUI.Properties.Resources.user;
+            this.newProfilePicture.InitialImage = global::ContactsUI.Properties.Resources.person;
             this.newProfilePicture.Location = new System.Drawing.Point(17, 17);
             this.newProfilePicture.Name = "newProfilePicture";
             this.newProfilePicture.Padding = new System.Windows.Forms.Padding(10);
@@ -178,9 +178,12 @@ namespace ContactsUI
             // 
             // birthdayPicker
             // 
-            this.birthdayPicker.Location = new System.Drawing.Point(334, 266);
+            this.birthdayPicker.CalendarForeColor = System.Drawing.SystemColors.GrayText;
+            this.birthdayPicker.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.birthdayPicker.CalendarTitleBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.birthdayPicker.Location = new System.Drawing.Point(334, 261);
             this.birthdayPicker.Name = "birthdayPicker";
-            this.birthdayPicker.Size = new System.Drawing.Size(401, 27);
+            this.birthdayPicker.Size = new System.Drawing.Size(411, 27);
             this.birthdayPicker.TabIndex = 5;
             // 
             // materialCard1
