@@ -1,4 +1,4 @@
-
+﻿
 namespace ContactsUI
 {
     partial class ProfilesNavigator
@@ -41,6 +41,7 @@ namespace ContactsUI
             this.ageLabel = new MaterialSkin.Controls.MaterialLabel();
             this.nameLabel = new MaterialSkin.Controls.MaterialLabel();
             this.profilePictureBox = new System.Windows.Forms.PictureBox();
+            this.noProfilesLabel = new System.Windows.Forms.Label();
             this.contactCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.SuspendLayout();
@@ -75,6 +76,7 @@ namespace ContactsUI
             this.previousProfileButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.previousProfileButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.previousProfileButton.Depth = 0;
+            this.previousProfileButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.previousProfileButton.HighEmphasis = true;
             this.previousProfileButton.Icon = null;
             this.previousProfileButton.Location = new System.Drawing.Point(18, 161);
@@ -83,7 +85,7 @@ namespace ContactsUI
             this.previousProfileButton.Name = "previousProfileButton";
             this.previousProfileButton.Size = new System.Drawing.Size(32, 36);
             this.previousProfileButton.TabIndex = 4;
-            this.previousProfileButton.Text = "<";
+            this.previousProfileButton.Text = "ᐊ";
             this.previousProfileButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.previousProfileButton.UseAccentColor = false;
             this.previousProfileButton.UseVisualStyleBackColor = true;
@@ -117,7 +119,7 @@ namespace ContactsUI
             this.nextProfileButton.Name = "nextProfileButton";
             this.nextProfileButton.Size = new System.Drawing.Size(32, 36);
             this.nextProfileButton.TabIndex = 3;
-            this.nextProfileButton.Text = ">";
+            this.nextProfileButton.Text = "ᐅ";
             this.nextProfileButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.nextProfileButton.UseAccentColor = false;
             this.nextProfileButton.UseVisualStyleBackColor = true;
@@ -230,11 +232,23 @@ namespace ContactsUI
             this.profilePictureBox.TabIndex = 0;
             this.profilePictureBox.TabStop = false;
             // 
+            // noProfilesLabel
+            // 
+            this.noProfilesLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.noProfilesLabel.ForeColor = System.Drawing.Color.Gray;
+            this.noProfilesLabel.Location = new System.Drawing.Point(0, 200);
+            this.noProfilesLabel.Name = "noProfilesLabel";
+            this.noProfilesLabel.Size = new System.Drawing.Size(790, 75);
+            this.noProfilesLabel.TabIndex = 2;
+            this.noProfilesLabel.Text = "You don\'t have any contact yet :(\r\nAdd new contacts in the upper left menu";
+            this.noProfilesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ProfilesNavigator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.contactCard);
+            this.Controls.Add(this.noProfilesLabel);
             this.Name = "ProfilesNavigator";
             this.Size = new System.Drawing.Size(790, 408);
             this.VisibleChanged += new System.EventHandler(this.ProfilesNavigator_VisibleChanged);
@@ -259,5 +273,6 @@ namespace ContactsUI
         private System.Windows.Forms.PictureBox profilePictureBox;
         private MaterialSkin.Controls.MaterialButton previousProfileButton;
         private MaterialSkin.Controls.MaterialButton nextProfileButton;
+        private System.Windows.Forms.Label noProfilesLabel;
     }
 }

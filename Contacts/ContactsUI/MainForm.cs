@@ -59,6 +59,5 @@ namespace ContactsUI
             materialSkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
         }
 
-
     }
 }

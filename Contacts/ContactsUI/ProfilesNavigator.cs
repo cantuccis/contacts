@@ -34,6 +34,12 @@ namespace ContactsUI
                 ageText.Text = $"{profile.Age} years old ({profile.Birthday.Date.ToShortDateString()})";
                 phoneText.Text = profile.PhoneNumber;
                 addressText.Text = profile.Address;
+                contactCard.Visible = true;
+                noProfilesLabel.Visible = false;
+            } else
+            {
+                contactCard.Visible = false;
+                noProfilesLabel.Visible = true;
             }
             
         }
