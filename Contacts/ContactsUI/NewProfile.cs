@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BrumCustomAlerts;
 using BusinessLogic;
+using BusinessLogic.Exceptions;
 using MaterialSkin;
 using Storage;
 using Storage.Exceptions;
