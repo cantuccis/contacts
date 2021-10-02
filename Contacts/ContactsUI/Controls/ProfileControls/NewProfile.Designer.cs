@@ -1,5 +1,5 @@
 
-namespace ContactsUI
+namespace ContactsUI.Controls.ProfileControls
 {
     partial class NewProfile
     {
@@ -151,7 +151,6 @@ namespace ContactsUI
             this.newProfilePicture.InitialImage = global::ContactsUI.Properties.Resources.person;
             this.newProfilePicture.Location = new System.Drawing.Point(17, 17);
             this.newProfilePicture.Name = "newProfilePicture";
-            this.newProfilePicture.Padding = new System.Windows.Forms.Padding(10);
             this.newProfilePicture.Size = new System.Drawing.Size(300, 300);
             this.newProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.newProfilePicture.TabIndex = 0;
@@ -207,7 +206,7 @@ namespace ContactsUI
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(762, 433);
+            this.materialCard1.Size = new System.Drawing.Size(762, 440);
             this.materialCard1.TabIndex = 3;
             // 
             // resultLabel

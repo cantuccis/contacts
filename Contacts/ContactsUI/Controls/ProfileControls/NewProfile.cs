@@ -10,11 +10,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BrumCustomAlerts;
 using BusinessLogic;
+using BusinessLogic.Exceptions;
 using MaterialSkin;
 using Storage;
 using Storage.Exceptions;
 
-namespace ContactsUI
+namespace ContactsUI.Controls.ProfileControls
 {
     public partial class NewProfile : UserControl
     {

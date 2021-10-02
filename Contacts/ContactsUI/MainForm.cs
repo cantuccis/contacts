@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using MaterialSkin.Controls;
 using Storage;
 using BusinessLogic;
+using ContactsUI.Controls.ProfileControls;
+using ContactsUI.Controls.BookControls;
 
 namespace ContactsUI
 {
@@ -24,6 +26,7 @@ namespace ContactsUI
         private readonly string storageDirPath;
 
         IList<Profile> profiles;
+        IList<Book> books;
 
         public Contacts()
         {
@@ -31,6 +34,7 @@ namespace ContactsUI
             storageDirPath = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, StorageFolder);
             localStorage = new LocalStorage(storageDirPath);
             profiles = new List<Profile>();
+            books = new List<Book>();
             materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
 
             SetupLocalStorage();
@@ -42,6 +46,7 @@ namespace ContactsUI
         {
             contactsTab.Controls.Add(new ProfilesNavigator(profiles));
             newContactTab.Controls.Add(new NewProfile(profiles, localStorage));
+            booksTab.Controls.Add(new BookList(books));
         }
 
         private void SetupLocalStorage()
@@ -61,7 +66,7 @@ namespace ContactsUI
                 MaterialSkin.Primary.DeepPurple400,
                 MaterialSkin.Primary.DeepPurple500,
                 MaterialSkin.Primary.Blue100,
-                MaterialSkin.Accent.Blue700,
+                MaterialSkin.Accent.Blue200,
                 MaterialSkin.TextShade.WHITE
                 );
         }
