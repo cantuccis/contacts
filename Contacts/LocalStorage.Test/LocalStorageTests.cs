@@ -1,9 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Storage;
 
-namespace LocalStorage.Test
+namespace Storage.Test
 {
     [TestClass]
     public class LocalStorageTests
@@ -22,7 +24,7 @@ namespace LocalStorage.Test
         [TestInitialize]
         public void Setup()
         {
-            files = new FileInfo[] { file1, file2, file3, file4, file5, file6 };
+            files = new FileInfo[] { file1, file2, file3, file4, file5, file6, file7 };
             localStorage.Clear();
         }
 
@@ -58,5 +60,31 @@ namespace LocalStorage.Test
             Assert.IsFalse(localStorage.Exists(file2.Name));
         }
 
+        [TestMethod]
+        public void GetAllTest()
+        {
+            foreach (var file in files)
+            {
+                localStorage.Add(file);
+            }
+
+            IList<string> returnedFiles = localStorage.GetAll().Select(file => file.Name).ToList();
+
+            foreach (var file in files)
+            {
+                Assert.IsTrue(returnedFiles.Contains(file.Name));
+
+            }
+        }
+
+        [TestMethod]
+        public void GetFileTest()
+        {
+            localStorage.Add(file1);
+
+            FileInfo retrievedFile = localStorage.Get(file1.Name);
+
+            Assert.AreEqual(retrievedFile.Name, file1.Name);
+        }
     }
 }
