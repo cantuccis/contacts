@@ -34,6 +34,7 @@ namespace ContactsUI
             this.newContactTab = new System.Windows.Forms.TabPage();
             this.contactsTab = new System.Windows.Forms.TabPage();
             this.tabsControl = new MaterialSkin.Controls.MaterialTabControl();
+            this.booksTab = new System.Windows.Forms.TabPage();
             this.tabImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabsControl.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +53,9 @@ namespace ContactsUI
             // contactsTab
             // 
             this.contactsTab.BackColor = System.Drawing.Color.White;
+            this.contactsTab.ForeColor = System.Drawing.Color.BlueViolet;
             this.contactsTab.ImageKey = "social-network (1).png";
+            this.contactsTab.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.contactsTab.Location = new System.Drawing.Point(4, 39);
             this.contactsTab.Name = "contactsTab";
             this.contactsTab.Padding = new System.Windows.Forms.Padding(3);
@@ -65,6 +68,7 @@ namespace ContactsUI
             // 
             this.tabsControl.Controls.Add(this.contactsTab);
             this.tabsControl.Controls.Add(this.newContactTab);
+            this.tabsControl.Controls.Add(this.booksTab);
             this.tabsControl.Depth = 0;
             this.tabsControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabsControl.ImageList = this.tabImageList;
@@ -76,15 +80,29 @@ namespace ContactsUI
             this.tabsControl.Size = new System.Drawing.Size(794, 513);
             this.tabsControl.TabIndex = 3;
             // 
+            // booksTab
+            // 
+            this.booksTab.ImageKey = "agenda.png";
+            this.booksTab.Location = new System.Drawing.Point(4, 39);
+            this.booksTab.Name = "booksTab";
+            this.booksTab.Padding = new System.Windows.Forms.Padding(3);
+            this.booksTab.Size = new System.Drawing.Size(786, 470);
+            this.booksTab.TabIndex = 2;
+            this.booksTab.Text = "Books";
+            this.booksTab.UseVisualStyleBackColor = true;
+            // 
             // tabImageList
             // 
             this.tabImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
             this.tabImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("tabImageList.ImageStream")));
             this.tabImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.tabImageList.Images.SetKeyName(0, "social-network.png");
-            this.tabImageList.Images.SetKeyName(1, "add-user.png");
-            this.tabImageList.Images.SetKeyName(2, "social-network (1).png");
-            this.tabImageList.Images.SetKeyName(3, "add-user (1).png");
+            this.tabImageList.Images.SetKeyName(0, "social-network (1).png");
+            this.tabImageList.Images.SetKeyName(1, "add-user (1).png");
+            this.tabImageList.Images.SetKeyName(2, "books.png");
+            this.tabImageList.Images.SetKeyName(3, "books (2).png");
+            this.tabImageList.Images.SetKeyName(4, "books (1).png");
+            this.tabImageList.Images.SetKeyName(5, "books (3).png");
+            this.tabImageList.Images.SetKeyName(6, "agenda.png");
             // 
             // Contacts
             // 
@@ -106,6 +124,7 @@ namespace ContactsUI
         private System.Windows.Forms.TabPage contactsTab;
         private MaterialSkin.Controls.MaterialTabControl tabsControl;
         private System.Windows.Forms.ImageList tabImageList;
+        private System.Windows.Forms.TabPage booksTab;
     }
 }
 

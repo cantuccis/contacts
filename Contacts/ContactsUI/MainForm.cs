@@ -42,6 +42,7 @@ namespace ContactsUI
         {
             contactsTab.Controls.Add(new ProfilesNavigator(profiles));
             newContactTab.Controls.Add(new NewProfile(profiles, localStorage));
+            booksTab.Controls.Add(new BookList());
         }
 
         private void SetupLocalStorage()
@@ -61,7 +62,7 @@ namespace ContactsUI
                 MaterialSkin.Primary.DeepPurple400,
                 MaterialSkin.Primary.DeepPurple500,
                 MaterialSkin.Primary.Blue100,
-                MaterialSkin.Accent.Blue700,
+                MaterialSkin.Accent.Blue200,
                 MaterialSkin.TextShade.WHITE
                 );
         }
