@@ -1,5 +1,5 @@
 ﻿
-namespace ContactsUI
+namespace ContactsUI.Controls.BookControls
 {
     partial class BookList
     {
@@ -68,6 +68,7 @@ namespace ContactsUI
             this.removeBookButton.TabIndex = 4;
             this.removeBookButton.Text = "materialFloatingActionButton1";
             this.removeBookButton.UseVisualStyleBackColor = true;
+            this.removeBookButton.Click += new System.EventHandler(this.removeBookButton_Click);
             // 
             // editBookButton
             // 
@@ -81,6 +82,7 @@ namespace ContactsUI
             this.editBookButton.TabIndex = 3;
             this.editBookButton.Text = "materialFloatingActionButton1";
             this.editBookButton.UseVisualStyleBackColor = true;
+            this.editBookButton.Click += new System.EventHandler(this.editBookButton_Click);
             // 
             // addBookButton
             // 

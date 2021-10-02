@@ -15,7 +15,7 @@ using MaterialSkin;
 using Storage;
 using Storage.Exceptions;
 
-namespace ContactsUI
+namespace ContactsUI.Controls.ProfileControls
 {
     public partial class NewProfile : UserControl
     {
