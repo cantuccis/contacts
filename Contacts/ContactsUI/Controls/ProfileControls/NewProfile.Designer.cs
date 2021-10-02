@@ -41,6 +41,7 @@ namespace ContactsUI.Controls.ProfileControls
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.resultLabel = new System.Windows.Forms.Label();
             this.profilePictureFilenameLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.bookComboBox = new MaterialSkin.Controls.MaterialComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.newProfilePicture)).BeginInit();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +52,7 @@ namespace ContactsUI.Controls.ProfileControls
             this.birthdayPickerLabel.Depth = 0;
             this.birthdayPickerLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.birthdayPickerLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
-            this.birthdayPickerLabel.Location = new System.Drawing.Point(334, 244);
+            this.birthdayPickerLabel.Location = new System.Drawing.Point(334, 302);
             this.birthdayPickerLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.birthdayPickerLabel.Name = "birthdayPickerLabel";
             this.birthdayPickerLabel.Size = new System.Drawing.Size(46, 14);
@@ -84,7 +85,7 @@ namespace ContactsUI.Controls.ProfileControls
             this.addressInput.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.addressInput.Hint = "Address";
             this.addressInput.LeadingIcon = null;
-            this.addressInput.Location = new System.Drawing.Point(334, 185);
+            this.addressInput.Location = new System.Drawing.Point(334, 243);
             this.addressInput.MaxLength = 50;
             this.addressInput.MouseState = MaterialSkin.MouseState.OUT;
             this.addressInput.Multiline = false;
@@ -101,7 +102,7 @@ namespace ContactsUI.Controls.ProfileControls
             this.phoneInput.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.phoneInput.Hint = "Phone number";
             this.phoneInput.LeadingIcon = null;
-            this.phoneInput.Location = new System.Drawing.Point(334, 129);
+            this.phoneInput.Location = new System.Drawing.Point(334, 187);
             this.phoneInput.MaxLength = 50;
             this.phoneInput.MouseState = MaterialSkin.MouseState.OUT;
             this.phoneInput.Multiline = false;
@@ -118,7 +119,7 @@ namespace ContactsUI.Controls.ProfileControls
             this.lastNameInput.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lastNameInput.Hint = "Last name";
             this.lastNameInput.LeadingIcon = null;
-            this.lastNameInput.Location = new System.Drawing.Point(334, 73);
+            this.lastNameInput.Location = new System.Drawing.Point(334, 131);
             this.lastNameInput.MaxLength = 50;
             this.lastNameInput.MouseState = MaterialSkin.MouseState.OUT;
             this.lastNameInput.Multiline = false;
@@ -135,7 +136,7 @@ namespace ContactsUI.Controls.ProfileControls
             this.firstNameInput.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.firstNameInput.Hint = "First name";
             this.firstNameInput.LeadingIcon = null;
-            this.firstNameInput.Location = new System.Drawing.Point(334, 17);
+            this.firstNameInput.Location = new System.Drawing.Point(334, 75);
             this.firstNameInput.MaxLength = 50;
             this.firstNameInput.MouseState = MaterialSkin.MouseState.OUT;
             this.firstNameInput.Multiline = false;
@@ -163,7 +164,7 @@ namespace ContactsUI.Controls.ProfileControls
             this.saveProfileButton.Depth = 0;
             this.saveProfileButton.HighEmphasis = true;
             this.saveProfileButton.Icon = null;
-            this.saveProfileButton.Location = new System.Drawing.Point(681, 377);
+            this.saveProfileButton.Location = new System.Drawing.Point(681, 382);
             this.saveProfileButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.saveProfileButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.saveProfileButton.Name = "saveProfileButton";
@@ -180,7 +181,7 @@ namespace ContactsUI.Controls.ProfileControls
             this.birthdayPicker.CalendarForeColor = System.Drawing.SystemColors.GrayText;
             this.birthdayPicker.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
             this.birthdayPicker.CalendarTitleBackColor = System.Drawing.Color.MediumSlateBlue;
-            this.birthdayPicker.Location = new System.Drawing.Point(334, 261);
+            this.birthdayPicker.Location = new System.Drawing.Point(334, 319);
             this.birthdayPicker.Name = "birthdayPicker";
             this.birthdayPicker.Size = new System.Drawing.Size(411, 27);
             this.birthdayPicker.TabIndex = 5;
@@ -188,6 +189,7 @@ namespace ContactsUI.Controls.ProfileControls
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.bookComboBox);
             this.materialCard1.Controls.Add(this.resultLabel);
             this.materialCard1.Controls.Add(this.saveProfileButton);
             this.materialCard1.Controls.Add(this.birthdayPickerLabel);
@@ -211,7 +213,7 @@ namespace ContactsUI.Controls.ProfileControls
             // 
             // resultLabel
             // 
-            this.resultLabel.Location = new System.Drawing.Point(131, 384);
+            this.resultLabel.Location = new System.Drawing.Point(131, 390);
             this.resultLabel.Name = "resultLabel";
             this.resultLabel.Size = new System.Drawing.Size(500, 22);
             this.resultLabel.TabIndex = 7;
@@ -227,6 +229,29 @@ namespace ContactsUI.Controls.ProfileControls
             this.profilePictureFilenameLabel.Name = "profilePictureFilenameLabel";
             this.profilePictureFilenameLabel.Size = new System.Drawing.Size(1, 0);
             this.profilePictureFilenameLabel.TabIndex = 3;
+            // 
+            // bookComboBox
+            // 
+            this.bookComboBox.AutoResize = false;
+            this.bookComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bookComboBox.Depth = 0;
+            this.bookComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.bookComboBox.DropDownHeight = 174;
+            this.bookComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bookComboBox.DropDownWidth = 121;
+            this.bookComboBox.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.bookComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bookComboBox.FormattingEnabled = true;
+            this.bookComboBox.Hint = "Book";
+            this.bookComboBox.IntegralHeight = false;
+            this.bookComboBox.ItemHeight = 43;
+            this.bookComboBox.Location = new System.Drawing.Point(334, 20);
+            this.bookComboBox.MaxDropDownItems = 4;
+            this.bookComboBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.bookComboBox.Name = "bookComboBox";
+            this.bookComboBox.Size = new System.Drawing.Size(411, 49);
+            this.bookComboBox.StartIndex = 0;
+            this.bookComboBox.TabIndex = 8;
             // 
             // NewProfile
             // 
@@ -257,5 +282,6 @@ namespace ContactsUI.Controls.ProfileControls
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialLabel profilePictureFilenameLabel;
         private System.Windows.Forms.Label resultLabel;
+        private MaterialSkin.Controls.MaterialComboBox bookComboBox;
     }
 }

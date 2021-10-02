@@ -1,12 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BrumCustomAlerts;
 using BusinessLogic;
@@ -21,18 +18,18 @@ namespace ContactsUI.Controls.ProfileControls
     {
         private LocalStorage localStorage;
         private FileInfo selectedImage;
-        private IList<Profile> profiles;
+        private IList<Book> books;
         private readonly MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
 
-        public NewProfile(IList<Profile> profiles, LocalStorage localStorage)
+        public NewProfile(IList<Book> books, LocalStorage localStorage)
         {
             this.localStorage = localStorage ?? throw new ArgumentNullException(nameof(localStorage));
-            this.profiles = profiles ?? throw new ArgumentNullException(nameof(profiles));
+            this.books = books ?? throw new ArgumentNullException(nameof(books));
             this.selectedImage = localStorage.Get(Contacts.DefaultProfileImageName);
             InitializeComponent();
         }
 
-        private void ResetNewProfileView()
+        private void RefreshNewProfileView()
         {
             firstNameInput.Clear();
             lastNameInput.Clear();
@@ -40,9 +37,17 @@ namespace ContactsUI.Controls.ProfileControls
             addressInput.Clear();
             newProfilePicture.Image = newProfilePicture.InitialImage;
             profilePictureFilenameLabel.Text = "";
+            LoadBooks();
         }
 
-        private void ResetResultLabel()
+        private void LoadBooks()
+        {
+            bookComboBox.ResetText();
+            bookComboBox.Items.Clear();
+            bookComboBox.Items.AddRange(books.Select(b => b.Name).ToArray());
+        }
+
+        private void RefreshResultLabel()
         {
             resultLabel.Text = "";
         }
@@ -66,7 +71,7 @@ namespace ContactsUI.Controls.ProfileControls
 
         private void SaveProfile()
         {
-            ResetResultLabel();
+            RefreshResultLabel();
             var newProfile = new Profile()
             {
                 FirstName = firstNameInput.Text,
@@ -77,7 +82,11 @@ namespace ContactsUI.Controls.ProfileControls
                 Birthday = birthdayPicker.Value,
             };
             localStorage.AddForce(selectedImage);
-            profiles.Add(newProfile);
+            if (bookComboBox.SelectedText != string.Empty)
+            {
+                var book = books.First(b => b.Name == bookComboBox.SelectedText);
+                book.Add(newProfile);
+            }
             
             BrumAlertFactory.OpenAlert(
                 $"Profile {newProfile.FirstName} {newProfile.LastName} was created", 
@@ -87,7 +96,7 @@ namespace ContactsUI.Controls.ProfileControls
                 5000, 
                 AlertLocation.BottomMiddle);
 
-            ResetNewProfileView();
+            RefreshNewProfileView();
         }
 
         private void chooseFileButton_Click(object sender, EventArgs e)
@@ -106,8 +115,8 @@ namespace ContactsUI.Controls.ProfileControls
 
         private void NewProfile_VisibleChanged(object sender, EventArgs e) 
         {
-            ResetNewProfileView();
-            ResetResultLabel();
+            RefreshNewProfileView();
+            RefreshResultLabel();
         }
 
     }
