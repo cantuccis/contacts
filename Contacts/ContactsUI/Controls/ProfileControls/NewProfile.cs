@@ -37,6 +37,7 @@ namespace ContactsUI.Controls.ProfileControls
             addressInput.Clear();
             newProfilePicture.Image = newProfilePicture.InitialImage;
             profilePictureFilenameLabel.Text = "";
+            selectedImage = localStorage.Get(Contacts.DefaultProfileImageName);
             LoadBooks();
         }
 
