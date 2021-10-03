@@ -9,7 +9,7 @@ namespace BusinessLogic
         private const int SaltSize = 16;
         private const int HashSize = 20;
 
-        private UsersRepository usersRepo;
+        private readonly UsersRepository usersRepo;
         private User UserLogged { get; set; }
         public CredentialsManager(UsersRepository usersRepo, User admin)
         {
