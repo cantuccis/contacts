@@ -52,5 +52,13 @@ namespace BusinessLogic.Test
 
             Assert.AreEqual(true, isAdmin);
         }
+
+        [TestMethod]
+        public void DefaultAdminToFalseTest()
+        {
+            User user = new User();
+
+            Assert.AreEqual(false, user.IsAdmin);
+        }
     }
 }
