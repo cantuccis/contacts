@@ -60,5 +60,23 @@ namespace BusinessLogic.Test
 
             Assert.AreEqual(false, user.IsAdmin);
         }
+
+        [TestMethod]
+        public void CloneTest()
+        {
+            User user = new User()
+            {
+                Username = "username",
+                Password = "password",
+                IsAdmin = true
+            };
+
+            User clone = user.DeepClone();
+
+            Assert.AreEqual(user.Username, clone.Username);
+            Assert.AreEqual(user.Password, clone.Password);
+            Assert.AreEqual(user.IsAdmin, clone.IsAdmin);
+        }
+
     }
 }
