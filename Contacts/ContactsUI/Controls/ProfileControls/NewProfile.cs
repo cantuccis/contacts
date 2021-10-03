@@ -45,6 +45,7 @@ namespace ContactsUI.Controls.ProfileControls
             bookComboBox.ResetText();
             bookComboBox.Items.Clear();
             bookComboBox.Items.AddRange(books.Select(b => b.Name).ToArray());
+            saveProfileButton.Enabled = books.Count > 0;
         }
 
         private void RefreshResultLabel()
@@ -72,31 +73,37 @@ namespace ContactsUI.Controls.ProfileControls
         private void SaveProfile()
         {
             RefreshResultLabel();
-            var newProfile = new Profile()
+            string selectedBook = (string)bookComboBox.SelectedItem ?? string.Empty;
+            if (selectedBook == string.Empty)
             {
-                FirstName = firstNameInput.Text,
-                LastName = lastNameInput.Text,
-                PhoneNumber = phoneInput.Text,
-                Address = addressInput.Text,
-                PicturePath = selectedImage.FullName,
-                Birthday = birthdayPicker.Value,
-            };
-            localStorage.AddForce(selectedImage);
-            if (bookComboBox.SelectedText != string.Empty)
+                resultLabel.Text = "You must select a book first";
+            } 
+            else
             {
-                var book = books.First(b => b.Name == bookComboBox.SelectedText);
+                var newProfile = new Profile()
+                {
+                    FirstName = firstNameInput.Text,
+                    LastName = lastNameInput.Text,
+                    PhoneNumber = phoneInput.Text,
+                    Address = addressInput.Text,
+                    PicturePath = selectedImage.FullName,
+                    Birthday = birthdayPicker.Value,
+                };
+                if(selectedImage.Name != Contacts.DefaultProfileImageName)
+                    localStorage.AddForce(selectedImage);
+                var book = books.First(b => b.Name == selectedBook);
                 book.Add(newProfile);
+                BrumAlertFactory.OpenAlert(
+                    $"Profile {newProfile.FirstName} {newProfile.LastName} was created",
+                    materialSkinManager.TextHighEmphasisColor,
+                    materialSkinManager.CardsColor,
+                    new Bitmap(selectedImage.FullName),
+                    5000,
+                    AlertLocation.BottomMiddle);
+
+                RefreshNewProfileView();
             }
             
-            BrumAlertFactory.OpenAlert(
-                $"Profile {newProfile.FirstName} {newProfile.LastName} was created", 
-                materialSkinManager.TextHighEmphasisColor, 
-                materialSkinManager.CardsColor, 
-                new Bitmap(selectedImage.FullName), 
-                5000, 
-                AlertLocation.BottomMiddle);
-
-            RefreshNewProfileView();
         }
 
         private void chooseFileButton_Click(object sender, EventArgs e)

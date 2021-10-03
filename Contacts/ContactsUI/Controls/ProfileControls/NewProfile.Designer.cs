@@ -39,9 +39,9 @@ namespace ContactsUI.Controls.ProfileControls
             this.saveProfileButton = new MaterialSkin.Controls.MaterialButton();
             this.birthdayPicker = new System.Windows.Forms.DateTimePicker();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.bookComboBox = new MaterialSkin.Controls.MaterialComboBox();
             this.resultLabel = new System.Windows.Forms.Label();
             this.profilePictureFilenameLabel = new MaterialSkin.Controls.MaterialLabel();
-            this.bookComboBox = new MaterialSkin.Controls.MaterialComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.newProfilePicture)).BeginInit();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
@@ -211,6 +211,29 @@ namespace ContactsUI.Controls.ProfileControls
             this.materialCard1.Size = new System.Drawing.Size(762, 440);
             this.materialCard1.TabIndex = 3;
             // 
+            // bookComboBox
+            // 
+            this.bookComboBox.AutoResize = false;
+            this.bookComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bookComboBox.Depth = 0;
+            this.bookComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.bookComboBox.DropDownHeight = 174;
+            this.bookComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bookComboBox.DropDownWidth = 121;
+            this.bookComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.bookComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bookComboBox.FormattingEnabled = true;
+            this.bookComboBox.Hint = "Book";
+            this.bookComboBox.IntegralHeight = false;
+            this.bookComboBox.ItemHeight = 43;
+            this.bookComboBox.Location = new System.Drawing.Point(334, 20);
+            this.bookComboBox.MaxDropDownItems = 4;
+            this.bookComboBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.bookComboBox.Name = "bookComboBox";
+            this.bookComboBox.Size = new System.Drawing.Size(411, 49);
+            this.bookComboBox.StartIndex = 0;
+            this.bookComboBox.TabIndex = 8;
+            // 
             // resultLabel
             // 
             this.resultLabel.Location = new System.Drawing.Point(131, 390);
@@ -229,29 +252,6 @@ namespace ContactsUI.Controls.ProfileControls
             this.profilePictureFilenameLabel.Name = "profilePictureFilenameLabel";
             this.profilePictureFilenameLabel.Size = new System.Drawing.Size(1, 0);
             this.profilePictureFilenameLabel.TabIndex = 3;
-            // 
-            // bookComboBox
-            // 
-            this.bookComboBox.AutoResize = false;
-            this.bookComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.bookComboBox.Depth = 0;
-            this.bookComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.bookComboBox.DropDownHeight = 174;
-            this.bookComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.bookComboBox.DropDownWidth = 121;
-            this.bookComboBox.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.bookComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bookComboBox.FormattingEnabled = true;
-            this.bookComboBox.Hint = "Book";
-            this.bookComboBox.IntegralHeight = false;
-            this.bookComboBox.ItemHeight = 43;
-            this.bookComboBox.Location = new System.Drawing.Point(334, 20);
-            this.bookComboBox.MaxDropDownItems = 4;
-            this.bookComboBox.MouseState = MaterialSkin.MouseState.OUT;
-            this.bookComboBox.Name = "bookComboBox";
-            this.bookComboBox.Size = new System.Drawing.Size(411, 49);
-            this.bookComboBox.StartIndex = 0;
-            this.bookComboBox.TabIndex = 8;
             // 
             // NewProfile
             // 

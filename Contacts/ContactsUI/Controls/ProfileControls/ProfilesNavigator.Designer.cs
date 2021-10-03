@@ -236,7 +236,7 @@ namespace ContactsUI
             // 
             this.noProfilesLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.noProfilesLabel.ForeColor = System.Drawing.Color.Gray;
-            this.noProfilesLabel.Location = new System.Drawing.Point(0, 200);
+            this.noProfilesLabel.Location = new System.Drawing.Point(0, 147);
             this.noProfilesLabel.Name = "noProfilesLabel";
             this.noProfilesLabel.Size = new System.Drawing.Size(790, 75);
             this.noProfilesLabel.TabIndex = 2;
