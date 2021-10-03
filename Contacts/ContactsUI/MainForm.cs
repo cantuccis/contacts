@@ -13,6 +13,7 @@ using Storage;
 using BusinessLogic;
 using ContactsUI.Controls.ProfileControls;
 using ContactsUI.Controls.BookControls;
+using System.Configuration;
 
 namespace ContactsUI
 {
@@ -22,30 +23,31 @@ namespace ContactsUI
 
         private readonly MaterialSkin.MaterialSkinManager materialSkinManager;
         private readonly LocalStorage localStorage;
-        private const string StorageFolder = "LocalStorage";
+        private const string StorageFolder = "localstorage";
         private readonly string storageDirPath;
 
-        IList<Profile> profiles;
-        IList<Book> books;
+        private readonly IList<Book> books;
 
         public Contacts()
         {
             InitializeComponent();
             storageDirPath = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, StorageFolder);
             localStorage = new LocalStorage(storageDirPath);
-            profiles = new List<Profile>();
             books = new List<Book>();
             materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
 
             SetupLocalStorage();
             SetupMaterialTheme();
             SetupMenuTabs();
+
+            //For testing only
+            LoadTestingData();
         }
 
         private void SetupMenuTabs()
         {
-            contactsTab.Controls.Add(new ProfilesNavigator(profiles));
-            newContactTab.Controls.Add(new NewProfile(profiles, localStorage));
+            contactsTab.Controls.Add(new BookProfilesNavigator(books));
+            newContactTab.Controls.Add(new NewProfile(books, localStorage));
             booksTab.Controls.Add(new BookList(books));
         }
 
@@ -54,9 +56,8 @@ namespace ContactsUI
             localStorage.Clear();
             Bitmap defaultProfileImage = Properties.Resources.person;
             string defaultProfileImagePath = Path.Combine(storageDirPath, DefaultProfileImageName);
-            defaultProfileImage.Save(defaultProfileImagePath);
+            defaultProfileImage.Save(defaultProfileImagePath, System.Drawing.Imaging.ImageFormat.Png);
         }
-
         private void SetupMaterialTheme()
         {
             materialSkinManager.EnforceBackcolorOnAllComponents = true;
@@ -70,6 +71,45 @@ namespace ContactsUI
                 MaterialSkin.TextShade.WHITE
                 );
         }
+
+        private void LoadTestingData()
+        {
+            var isTestingEnabled = bool.Parse(ConfigurationManager.AppSettings[ApplicationSettings.TestingDataEnabled]);
+            if(isTestingEnabled)
+            {
+                var profilesCount = int.Parse(ConfigurationManager.AppSettings[ApplicationSettings.TestingProfilesCount]);
+                var booksCount = int.Parse(ConfigurationManager.AppSettings[ApplicationSettings.TestingBooksCount]);
+
+                string[] Names = new string[] { "John", "Johny", "Rob", "Bob", "Jessica", "Mike" };
+                string[] Surnames = new string[] { "Doe", "Goodman", "McClaw", "White" };
+                DateTime[] Dates = new DateTime[] { new DateTime(1997, 10, 7), new DateTime(1999, 9, 9) };
+                string SomeStreetAddress = "SomeStreet 1111";
+                string PicturePathSample = Path.Combine(storageDirPath,DefaultProfileImageName);
+                string SomeBookName = "Somebook";
+                int phoneNumber = 91000000;
+
+                Random rand = new Random();
+
+                for (int i = 0; i < booksCount; i++)
+                    books.Add(new Book() { Name = $"{SomeBookName}{i}" });
+
+                for (int i = 0; i < profilesCount; i++)
+                {
+                    var newProfile = new Profile()
+                    {
+                        FirstName = Names[rand.Next(Names.Length)],
+                        LastName = Surnames[rand.Next(Surnames.Length)],
+                        Birthday = Dates[rand.Next(Dates.Length)],
+                        PhoneNumber = $"+598{phoneNumber++}",
+                        Address = SomeStreetAddress,
+                        PicturePath = PicturePathSample
+                    };
+                    books[i % booksCount].Add(newProfile);
+                }
+
+            }
+        }
+
 
     }
 }
