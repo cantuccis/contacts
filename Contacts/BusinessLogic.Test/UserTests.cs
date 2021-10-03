@@ -37,7 +37,20 @@ namespace BusinessLogic.Test
 
             var password = user.Password;
 
-            Assert.AreEqual("abc", user.Password);
+            Assert.AreEqual("abc", password);
+        }
+
+        [TestMethod]
+        public void IsAdminTest()
+        {
+            User user = new User()
+            {
+                IsAdmin = true
+            };
+
+            var isAdmin = user.IsAdmin;
+
+            Assert.AreEqual(true, isAdmin);
         }
     }
 }
