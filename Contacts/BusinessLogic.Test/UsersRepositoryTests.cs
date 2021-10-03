@@ -16,6 +16,7 @@ namespace BusinessLogic.Test
         [TestInitialize]
         public void Setup()
         {
+            users = new List<User>();
             adminUser = new User()
             {
                 Username = "admin",
@@ -23,7 +24,6 @@ namespace BusinessLogic.Test
                 IsAdmin = true,
             };
             users.Add(adminUser);
-            users = new List<User>();
             for (int i = 0; i < 20; i++)
             {
                 var user = new User()
@@ -120,7 +120,7 @@ namespace BusinessLogic.Test
 
             usersRepo.Remove(adminUser.Username);
 
-            Assert.IsTrue(usersRepo.Exists(adminUser.Username));
+            Assert.IsFalse(usersRepo.Exists(adminUser.Username));
         }
 
         [TestMethod]
