@@ -76,5 +76,7 @@ namespace ContactsUI.Controls.BookControls
                 }
             }
         }
+
+        private void BookList_VisibleChanged(object sender, EventArgs e) => LoadBooks();
     }
 }

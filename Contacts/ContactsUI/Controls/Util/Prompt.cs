@@ -20,7 +20,6 @@ namespace ContactsUI.Controls.Util
                 Text = title,
                 StartPosition = FormStartPosition.CenterScreen
             };
-            MaterialSkinManager.Instance.AddFormToManage(prompt);
             MaterialTextBox textBox = new()
             {
                 Left = 50,
@@ -55,7 +54,6 @@ namespace ContactsUI.Controls.Util
                 Text = title,
                 StartPosition = FormStartPosition.CenterScreen
             };
-            MaterialSkinManager.Instance.AddFormToManage(prompt);
             MaterialLabel textBox = new()
             {
                 Left = 50,
@@ -63,7 +61,7 @@ namespace ContactsUI.Controls.Util
                 Width = 400,
                 Height = 70,
                 Text = text,
-                BackColor = System.Drawing.Color.White,
+                BackColor = MaterialSkinManager.Instance.BackgroundColor,
             };
             MaterialButton yesButton = new()
             {
