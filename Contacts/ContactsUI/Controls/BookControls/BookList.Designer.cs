@@ -132,6 +132,7 @@ namespace ContactsUI.Controls.BookControls
             this.Controls.Add(this.containerCard);
             this.Name = "BookList";
             this.Size = new System.Drawing.Size(790, 468);
+            this.VisibleChanged += new System.EventHandler(this.BookList_VisibleChanged);
             this.containerCard.ResumeLayout(false);
             this.containerCard.PerformLayout();
             this.ResumeLayout(false);
