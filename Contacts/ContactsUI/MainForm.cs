@@ -35,13 +35,12 @@ namespace ContactsUI
             localStorage = new LocalStorage(storageDirPath);
             books = new List<Book>();
             materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
+            //For testing only
+            LoadTestingData();
 
             SetupLocalStorage();
             SetupMaterialTheme();
             SetupMenuTabs();
-
-            //For testing only
-            LoadTestingData();
         }
 
         private void SetupMenuTabs()
@@ -49,6 +48,7 @@ namespace ContactsUI
             contactsTab.Controls.Add(new BookProfilesNavigator(books));
             newContactTab.Controls.Add(new NewProfile(books, localStorage));
             booksTab.Controls.Add(new BookList(books));
+            booksProfilesTab.Controls.Add(new ExpandableBookList(books));
         }
 
         private void SetupLocalStorage()

@@ -35,6 +35,7 @@ namespace ContactsUI
             this.contactsTab = new System.Windows.Forms.TabPage();
             this.tabsControl = new MaterialSkin.Controls.MaterialTabControl();
             this.booksTab = new System.Windows.Forms.TabPage();
+            this.booksProfilesTab = new System.Windows.Forms.TabPage();
             this.tabImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabsControl.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +70,7 @@ namespace ContactsUI
             this.tabsControl.Controls.Add(this.contactsTab);
             this.tabsControl.Controls.Add(this.newContactTab);
             this.tabsControl.Controls.Add(this.booksTab);
+            this.tabsControl.Controls.Add(this.booksProfilesTab);
             this.tabsControl.Depth = 0;
             this.tabsControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabsControl.ImageList = this.tabImageList;
@@ -91,6 +93,17 @@ namespace ContactsUI
             this.booksTab.Text = "Books";
             this.booksTab.UseVisualStyleBackColor = true;
             // 
+            // booksProfilesTab
+            // 
+            this.booksProfilesTab.ImageKey = "layout.png";
+            this.booksProfilesTab.Location = new System.Drawing.Point(4, 39);
+            this.booksProfilesTab.Name = "booksProfilesTab";
+            this.booksProfilesTab.Padding = new System.Windows.Forms.Padding(3);
+            this.booksProfilesTab.Size = new System.Drawing.Size(786, 470);
+            this.booksProfilesTab.TabIndex = 3;
+            this.booksProfilesTab.Text = "Book Profiles";
+            this.booksProfilesTab.UseVisualStyleBackColor = true;
+            // 
             // tabImageList
             // 
             this.tabImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
@@ -103,6 +116,7 @@ namespace ContactsUI
             this.tabImageList.Images.SetKeyName(4, "books (1).png");
             this.tabImageList.Images.SetKeyName(5, "books (3).png");
             this.tabImageList.Images.SetKeyName(6, "agenda.png");
+            this.tabImageList.Images.SetKeyName(7, "layout.png");
             // 
             // Contacts
             // 
@@ -125,6 +139,7 @@ namespace ContactsUI
         private MaterialSkin.Controls.MaterialTabControl tabsControl;
         private System.Windows.Forms.ImageList tabImageList;
         private System.Windows.Forms.TabPage booksTab;
+        private System.Windows.Forms.TabPage booksProfilesTab;
     }
 }
 
