@@ -87,24 +87,30 @@ namespace ContactsUI.Controls.ProfileControls
                     LastName = lastNameInput.Text,
                     PhoneNumber = phoneInput.Text,
                     Address = addressInput.Text,
-                    PicturePath = selectedImage.FullName,
                     Birthday = birthdayPicker.Value,
                 };
-                if(selectedImage.Name != Contacts.DefaultProfileImageName)
-                    localStorage.AddForce(selectedImage);
+                if (selectedImage.Name != Contacts.DefaultProfileImageName && !localStorage.Exists(selectedImage.Name))
+                {
+                    localStorage.Add(selectedImage);
+                    newProfile.PicturePath = localStorage.Get(selectedImage.Name).FullName;
+                }
                 var book = books.First(b => b.Name == selectedBook);
                 book.Add(newProfile);
-                BrumAlertFactory.OpenAlert(
-                    $"Profile {newProfile.FirstName} {newProfile.LastName} was created",
-                    materialSkinManager.TextHighEmphasisColor,
-                    materialSkinManager.CardsColor,
-                    new Bitmap(selectedImage.FullName),
-                    5000,
-                    AlertLocation.BottomMiddle);
-
+                ShowNewProfileToast(newProfile);
                 RefreshNewProfileView();
             }
-            
+
+        }
+
+        private void ShowNewProfileToast(Profile newProfile)
+        {
+            BrumAlertFactory.OpenAlert(
+                $"Profile {newProfile.FirstName} {newProfile.LastName} was created",
+                materialSkinManager.TextHighEmphasisColor,
+                materialSkinManager.CardsColor,
+                new Bitmap(selectedImage.FullName),
+                5000,
+                AlertLocation.BottomMiddle);
         }
 
         private void chooseFileButton_Click(object sender, EventArgs e)
