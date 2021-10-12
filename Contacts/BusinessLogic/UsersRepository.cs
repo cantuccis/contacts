@@ -8,7 +8,7 @@ namespace BusinessLogic
     public class UsersRepository
     {
 
-        IList<User> collection;
+        private IList<User> collection;
 
         public UsersRepository()
         {
